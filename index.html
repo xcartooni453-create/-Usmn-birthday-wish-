@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سالگرہ کی ایک ذاتی خواہش - عثمان کے نام</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Fonts for enhanced Urdu/Arabic aesthetics -->
+    <link href="https://fonts.googleapis.com/css2?family=Gulzar&family=Marhey:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* Nastaliq style font for traditional Urdu look */
+        .urdu-font {
+            font-family: 'Gulzar', serif; /* A beautiful, traditional Urdu font */
+            line-height: 2.2; /* Better line spacing for Urdu */
+            font-size: 1.25rem; /* Large text for mobile readability */
+        }
+        
+        /* Fallback/Decorative Font */
+        .marhey-font {
+            font-family: 'Marhey', sans-serif;
+            font-weight: 700;
+        }
+
+        /* Initial Frame/Container (Birthday Icon/Image) */
+        #frame-container {
+            width: 90%;
+            max-width: 400px;
+            height: 400px;
+            background-color: #f7a9a9; /* Soft Pink/Reddish background */
+            transition: all 0.7s ease-in-out;
+            cursor: pointer;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            border-radius: 20px;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border: 5px solid #d45963; /* Darker border */
+            background-image: linear-gradient(135deg, #ffd1d1 0%, #f7a9a9 100%);
+            overflow: hidden;
+        }
+
+        /* Heart Icon Styling on Frame */
+        .birthday-icon {
+            font-size: 80px;
+            color: #d45963; /* Deep Red */
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+            animation: bounce-heart 2s infinite;
+        }
+
+        @keyframes bounce-heart {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-15px); }
+            60% { transform: translateY(-8px); }
+        }
+
+        /* The Letter Paper */
+        #letter-content {
+            background-color: #fcf8f0; /* Very light parchment/Paper color */
+            color: #3e3220; /* Dark Brown Ink color */
+            width: 95%;
+            max-width: 700px;
+            min-height: 500px;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border: 2px solid #a38c70;
+            padding: 4rem 2.5rem;
+            border-radius: 10px;
+            position: relative;
+        }
+        
+        /* Active/Opened state classes */
+        .opened #frame-container {
+            opacity: 0;
+            height: 0;
+            width: 0;
+            margin: 0;
+            padding: 0;
+            transform: scale(0.1);
+        }
+        .opened #letter-content {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        /* Signature Area Styling */
+        .signature-area {
+            border-top: 2px dashed #d45963;
+            padding-top: 1.5rem;
+            margin-top: 2rem;
+            align-items: flex-start;
+        }
+        
+        .birthday-message {
+            background-color: #fff0f5; /* Lightest pink */
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-right: 5px solid #d45963;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col items-center justify-center p-4">
+
+    <!-- Main Container -->
+    <div id="app" class="w-full flex flex-col items-center justify-center">
+
+        <h1 id="instructions" class="text-xl md:text-3xl font-bold mb-10 text-gray-800 marhey-font text-center">
+            سالگرہ کا یہ خصوصی سرپرائز کھولنے کے لیے اس دل پر Tap کریں!
+        </h1>
+
+        <!-- The Photo Frame/Hidden Element (Clickable) -->
+        <div id="frame-container" onclick="openLetter()" class="flex flex-col items-center justify-center">
+            <i class="fas fa-gift birthday-icon"></i>
+            <div class="text-4xl text-gray-900 marhey-font font-bold">عثمان! یومِ پیدائش مبارک</div>
+            <p class="mt-4 text-xl marhey-font text-red-800 animate-pulse">(میری ذاتی خواہش اندر چھپی ہے)</p>
+        </div>
+
+        <!-- The Letter Content (Initially Hidden) -->
+        <div id="letter-content" class="urdu-font">
+            <div class="flex justify-between items-center mb-6 border-b border-gray-400 pb-4">
+                <h2 class="text-3xl font-bold marhey-font text-red-700">میری سالگرہ کی خواہش (جو صرف آپ کے لیے ہے)</h2>
+                <i class="fas fa-heart text-red-700 text-3xl animate-bounce"></i>
+            </div>
+            
+            <p class="mb-5">
+                **عزیز از جان، عثمان!**
+            </p>
+            <p class="mb-7 birthday-message">
+                یومِ پیدائش بہت مبارک ہو! یہ سالگرہ آپ کے لیے صرف ایک تاریخ نہیں، بلکہ میری زندگی کا ایک ایسا دن ہے جب میں رب کا شکریہ ادا کرتی ہوں کہ اس نے آپ کو دنیا میں بھیجا اور میری دنیا میں لایا۔
+            </p>
+
+            <p class="mb-5">
+                آپ کی سالگرہ کے دن، دنیا کی تمام چیزوں میں سے، اگر مجھے صرف ایک خواہش مانگنے کا اختیار ملے، تو میں نے کوئی مادی چیز نہیں مانگنی۔ میری خواہش صرف آپ کے ارد گرد گھومتی ہے۔
+            </p>
+
+            <h3 class="text-2xl marhey-font text-red-700 mt-8 mb-4">میری ذاتی اور سب سے بڑی خواہش:</h3>
+            
+            <p class="mb-5 font-bold">
+                میری خواہش ہے کہ آپ کا دل ہمیشہ سکون اور خوشی سے بھرا رہے۔ میں دعا کرتی ہوں کہ زندگی میں آپ کو وہ تمام کامیابیاں ملیں جن کے آپ حقدار ہیں۔ آپ جس بھی سفر پر نکلیں، رب تعالیٰ آپ کا محافظ ہو۔
+            </p>
+            
+            <p class="mb-5">
+                میری خواہش ہے کہ آپ کی آنکھوں میں کبھی کوئی دکھ نہ ہو۔ آپ کا دل ہر تکلیف سے محفوظ رہے، اور آپ کا چہرہ ہمیشہ اس مسکراہٹ سے جگمگاتا رہے جو مجھے دنیا میں سب سے زیادہ پیاری ہے۔ میں ہر لمحہ یہ دیکھنا چاہتی ہوں کہ آپ زندگی کو پوری طرح سے جئیں۔
+            </p>
+
+            <p class="mb-10">
+                آپ کی خوشی، آپ کا سکون اور آپ کی بہترین صحت، یہی میرے لیے اس سالگرہ کا سب سے بڑا تحفہ ہے۔ یہ تحفہ میں دنیا کے کسی خزانے سے نہیں بدلوں گی۔ خدا کرے ہمارا یہ پیار، ہماری یہ دوستی، ہمیشہ یوں ہی مضبوط اور خوبصورت رہے۔
+            </p>
+
+            <div class="signature-area flex flex-col items-start">
+                <p class="text-xl font-semibold marhey-font">ہمیشہ کی طرح،</p>
+                <!-- UPDATED LINE 1: Changed 'آپ کی جانب سے' to 'طیبہ کی جانب سے' -->
+                <p class="text-2xl font-bold marhey-font text-red-700 mt-2">طیبہ کی جانب سے،</p>
+                <p class="text-3xl font-extrabold marhey-font mt-1">طیبہ</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const app = document.getElementById('app');
+        const instructions = document.getElementById('instructions');
+
+        function openLetter() {
+            // Add 'opened' class to trigger CSS transitions
+            app.classList.add('opened');
+            // UPDATED LINE 2: Changed 'عثمان کا' to 'طیبہ کا'
+            instructions.textContent = 'آپ کے لیے طیبہ کا خصوصی پیغام!'; 
+            instructions.classList.add('text-red-700');
+            instructions.classList.remove('text-gray-800');
+        }
+    </script>
+</body>
+</html>
+
